@@ -11,16 +11,34 @@ function handleMouseEnter() {
 function handleMouseLeave() {
     h1.style.color = "blue"
 }
+//toggle사용
 function handleTitleClick() {
-    const currentColor = h1.style.color;
-    let newColor = '';
-    if(currentColor === "blue"){
-        newColor="tomato"   
-    }else{
-        newColor = "blue"
-    }
-    h1.style.color = newColor;
+    const clickedClass = "clicked"
+    h1.classList.toggle(clickedClass)
 }
+
+
+//class로 제어
+// function handleTitleClick() {
+//     const clickedClass = "clicked"
+//     if(h1.classList.contains(clickedClass)){
+//         h1.classList.remove(clickedClass);
+//     }else{
+//         h1.classList.add(clickedClass);
+//     }
+// }
+
+//style을 직접바꿈
+// function handleTitleClick() {
+//     const currentColor = h1.style.color;
+//     let newColor = '';
+//     if(currentColor === "blue"){
+//         newColor="tomato"   
+//     }else{
+//         newColor = "blue"
+//     }
+//     h1.style.color = newColor;
+// }
 h1.addEventListener("click", handleTitleClick);
 
 
