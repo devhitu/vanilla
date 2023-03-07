@@ -50,7 +50,3 @@ const todaysQuote = quotes[randomNum];
 
 quote.innerText = todaysQuote.quote;
 author.innerText = todaysQuote.author;
-
-function name(params) {
-    
-}
