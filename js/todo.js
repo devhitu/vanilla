@@ -3,7 +3,7 @@ const toDoInput = toDoForm.querySelector("input");
 const toDoList = document.getElementById("todo-list");
 const toDos = [];
 
-//4. todo 작성
+//4. 입력값 저장
 function saveTodos(params) {
     //localStrorage only saves "text", no "array"
     //array(string)로 저장할순없을까? JSON.stringify
@@ -11,14 +11,14 @@ function saveTodos(params) {
 
 }
 
-//3. todo 작성
+//3. 삭제
 function deleteTodo(event) {
     //console.dir(event.target.parentElement.innerText) //몇번째 li가 클릭된 건 지 알 수 있음
     const li = event.target.parentElement; //button 클릭 이벤트에서 해당 버튼의 부모 li 찾기
     li.remove(); //해당 button 삭제
 }
 
-//2. todo 작성
+//2. 입력값을 하위에 그리기
 function paintToDo(newTodo) { 
     const li = document.createElement("li"); //tag 생성
     const span = document.createElement("span");
