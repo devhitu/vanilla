@@ -1,14 +1,14 @@
 const toDoForm = document.getElementById("todo-form");
 const toDoInput = toDoForm.querySelector("input");
 const toDoList = document.getElementById("todo-list");
-const toDos = [];
+const TODOS_KEY = "todos"
+let toDos = []; //update가 가능하도록
 
 //4. 입력값 저장
-function saveTodos(params) {
+function saveTodos() {
     //localStrorage only saves "text", no "array"
     //array(string)로 저장할순없을까? JSON.stringify
-    localStorage.setItem("todos", JSON.stringify(toDos)); //array 자체를 문자열로 만듦
-
+    localStorage.setItem(TODOS_KEY, JSON.stringify(toDos)); //array 자체를 문자열로 만듦
 }
 
 //3. 삭제
@@ -45,3 +45,22 @@ function handleToDoSubmit(event) {
 
 //0. 입력값에 submit 이벤트 실행시 함수 작동
 toDoForm.addEventListener("submit",handleToDoSubmit)
+
+
+
+//5. 저장한 값을 배열로 나타내기
+const savedTodos = localStorage.getItem(TODOS_KEY);
+if(savedTodos){
+    const parsedToDos = JSON.parse(savedTodos);
+    console.log(parsedToDos) //array
+    toDos = parsedToDos; //값을
+    //parsedToDo가 갖고있는 각각에 대해 function을 실행시켜줘
+    //따로 function을 빼서 쓰는 것 보단 arrow function을 쓰는게 간결함
+    parsedToDos.forEach((item)=>console.log(item));
+}
+
+//따로 function을 빼서 썼을때..
+/* function sayHello(item) {
+     //지금 처리되고 있는 item 또한 그냥 제공해준다
+     console.log('this is the turn of', item)
+}*/
