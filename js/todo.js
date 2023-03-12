@@ -23,11 +23,13 @@ function deleteTodo(event) {
 //2. 입력값을 하위에 그리기
 function paintToDo(newTodo) { 
     const li = document.createElement("li"); //tag 생성
-    li.id = newTodo.id;
+    li.id = newTodo.id; //li를 id로 구분짓기
+
     const span = document.createElement("span");
     span.innerText = newTodo.text; //span tag안에 입력값 넣기
+
     const button = document.createElement("button");
-    button.innerText = "done"; 
+    button.innerText = "DONE"; 
     button.addEventListener("click", deleteTodo) //삭제버튼 클릭시 삭제함수작동
     li.appendChild(span); 
     li.appendChild(button);
@@ -36,7 +38,7 @@ function paintToDo(newTodo) {
 
 //1. todo 작성
 function handleToDoSubmit(event) {
-    //form은 submit 이벤트를 가짐. So, 기본적인 event를 막아야함
+    //form은 submit 이벤트를 가짐. So, 기본적인 event(예.새로고침)를 막아야함
     event.preventDefault(); 
     const newTodo = toDoInput.value; //현재의 값 복사
     toDoInput.value =""; //enter시 사라지게
@@ -44,10 +46,12 @@ function handleToDoSubmit(event) {
 
     const newTodoObj = {
         text: newTodo,
+
+        //1970년 1월 1일 0시 0분 0초부터 현재까지 경과된 밀리초를 반환하는 값 
         id: Date.now(), //id로 각각을 구별하기 위해서
     }
 
-    toDos.push(newTodoObj); //입력값을 배열로 넣기
+    toDos.push(newTodoObj); //입력값을 빈배열에 넣기
     paintToDo(newTodoObj); //입력값을 하위에 그리기
     saveTodos(); //입력값 저장하기
 }
