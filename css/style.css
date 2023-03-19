@@ -1,2 +1,19 @@
+body, body *{margin: 0;line-height: 1;padding: 0;position: relative;overflow: hidden;}
+body > img{position: absolute;left: 0;top: 0;opacity: .9;z-index: -1;}
+body .inner{color: #fff; width: 1080px;margin: 0 auto;text-align: center;}
 .hidden{display: none;}
-/* img{position: absolute;left: 0;top: 0;width: 100%;height: 100%;opacity: .9;z-index: -1;} */
+
+#login-form{position: relative;z-index: 2;margin:50px auto 100px;width: 100%;text-align: right;}
+#login-form:after{content: '';display: block;clear: both;}
+#login-form input[type=text]{width: 15%;padding: 5px 5px;}
+#login-form input[type=submit]{padding: 5px 5px;background: pink;}
+
+#clock{background: rgba(0,0,0,.4);padding: 10px 0;font-size: 42px;margin: 0 auto 100px;}
+
+#todo-form{background: rgba(255,255,255,.4);padding: 15px 0;margin: 0 auto 0;}
+#todo-form input[type=text]{width: 60%;padding: 10px 5px;}
+#todo-list{background: rgba(0,255,255,.4);}
+#quote{font-style: italic; word-break: keep-all; padding: 10px 0;font-size: 20px;color: #222;background: #e8e8e8;text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);}
+
+
+#weather{}
